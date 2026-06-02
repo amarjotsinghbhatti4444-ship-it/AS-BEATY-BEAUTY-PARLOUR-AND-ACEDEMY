@@ -8,7 +8,7 @@ export default function Footer() {
           
           {/* Brand */}
           <div className="col-span-1 lg:col-span-1">
-            <Link href="#home" className="flex flex-col items-start mb-6">
+            <Link href="/#home" className="flex flex-col items-start mb-6">
               <h1 className="font-serif text-2xl font-bold tracking-wider text-white">
                 AS <span className="text-gold">BEAUTY</span>
               </h1>
@@ -23,11 +23,14 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-serif text-lg mb-6 tracking-wide">Quick Links</h4>
             <ul className="space-y-3">
-              {['Home', 'About Us', 'Gallery', 'Testimonials', 'Contact Us'].map((link) => (
-                <li key={link}>
-                  <a href={`#${link.toLowerCase().replace(' ', '')}`} className="text-sm hover:text-gold transition-colors">{link}</a>
-                </li>
-              ))}
+              {['Home', 'About Us', 'Gallery', 'Contact Us'].map((link) => {
+                const targetId = link === 'About Us' ? 'about' : link === 'Contact Us' ? 'contact' : link.toLowerCase();
+                return (
+                  <li key={link}>
+                    <Link href={`/#${targetId}`} className="text-sm hover:text-gold transition-colors">{link}</Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -37,7 +40,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {['Hair Styling & Cutting', 'Bridal & Party Makeup', 'Facial & Skin Care', 'Manicure & Pedicure', 'Nail Art', 'Threading & Waxing'].map((link) => (
                 <li key={link}>
-                  <a href="#services" className="text-sm hover:text-gold transition-colors">{link}</a>
+                  <Link href="/#services" className="text-sm hover:text-gold transition-colors">{link}</Link>
                 </li>
               ))}
             </ul>
@@ -49,7 +52,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {['Basic Beauty Course', 'Advanced Makeup Course', 'Bridal Makeup Training', 'Hair Styling Course', 'Nail Art Course', 'Beautician Diploma'].map((link) => (
                 <li key={link}>
-                  <a href="#academy" className="text-sm hover:text-gold transition-colors">{link}</a>
+                  <Link href="/#academy" className="text-sm hover:text-gold transition-colors">{link}</Link>
                 </li>
               ))}
             </ul>

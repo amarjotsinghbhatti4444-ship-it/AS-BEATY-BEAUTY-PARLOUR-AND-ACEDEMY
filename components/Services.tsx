@@ -84,7 +84,7 @@ export default function Services() {
                 <h3 className="font-serif text-xl font-medium text-dark-primary mb-2">{service.name}</h3>
                 <p className="text-gray-500 text-sm mb-6 flex-grow">{service.desc}</p>
                 <a 
-                  href={`#booking?service=${encodeURIComponent(service.name)}`}
+                  href={`/#booking?service=${encodeURIComponent(service.name)}`}
                   className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-dark-primary group-hover:text-gold transition-colors"
                 >
                   Book Now

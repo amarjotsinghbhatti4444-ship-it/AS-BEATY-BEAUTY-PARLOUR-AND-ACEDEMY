@@ -52,13 +52,13 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
         >
           <Link 
-            href="#booking"
+            href="/#booking"
             className="w-full sm:w-auto px-8 py-3.5 bg-gold hover:bg-gold-light text-white font-medium text-sm tracking-widest uppercase transition-all shadow-lg shadow-gold/20"
           >
             Book Appointment
           </Link>
           <Link 
-            href="#academy"
+            href="/#academy"
             className="w-full sm:w-auto px-8 py-3.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-medium text-sm tracking-widest uppercase transition-all"
           >
             Join Academy

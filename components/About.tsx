@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function About() {
   return (
@@ -89,12 +90,12 @@ export default function About() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#booking" className="px-8 py-3 bg-dark-primary text-white text-sm font-medium tracking-widest uppercase hover:bg-gold transition-colors text-center">
+                <Link href="/#booking" className="px-8 py-3 bg-dark-primary text-white text-sm font-medium tracking-widest uppercase hover:bg-gold transition-colors text-center inline-block">
                   Learn More
-                </a>
-                <a href="#services" className="px-8 py-3 border border-dark-primary text-dark-primary text-sm font-medium tracking-widest uppercase hover:bg-dark-primary hover:text-white transition-colors text-center">
+                </Link>
+                <Link href="/#services" className="px-8 py-3 border border-dark-primary text-dark-primary text-sm font-medium tracking-widest uppercase hover:bg-dark-primary hover:text-white transition-colors text-center inline-block">
                   Our Services
-                </a>
+                </Link>
               </div>
             </motion.div>
           </div>

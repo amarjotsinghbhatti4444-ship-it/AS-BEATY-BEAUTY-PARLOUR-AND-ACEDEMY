@@ -2,35 +2,44 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, MapPin, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const NavLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Academy', href: '#academy' },
-  { name: 'Gallery', href: '#gallery' },
-  { name: 'Testimonials', href: '#testimonials' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '/#home' },
+  { name: 'About', href: '/#about' },
+  { name: 'Services', href: '/#services' },
+  { name: 'Academy', href: '/#academy' },
+  { name: 'Gallery', href: '/#gallery' },
+  { name: 'Contact', href: '/#contact' },
+  { name: 'Verify Cert', href: '/verify' },
+  { name: 'Admin', href: '/admin' },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === '/';
+  const [scrolled, setScrolled] = useState(!isHome);
 
   useEffect(() => {
+    if (!isHome) {
+      setScrolled(true);
+      return;
+    }
     const handleScroll = () => setScrolled(window.scrollY > 50);
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHome]);
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link href="#home" className="flex flex-col items-center z-50">
+          <Link href="/#home" className="flex flex-col items-center z-50">
             <h1 className={`font-serif text-2xl md:text-3xl font-bold tracking-wider ${scrolled ? 'text-dark-primary' : 'text-white'}`}>
               AS <span className="text-gold">BEAUTY</span>
             </h1>
@@ -49,7 +58,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link 
-              href="#booking"
+              href="/#booking"
               className="px-6 py-2.5 bg-gold hover:bg-gold-light text-white font-medium text-sm tracking-widest uppercase transition-all shadow-lg hover:shadow-gold/30"
             >
               Book Now
@@ -87,7 +96,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link 
-              href="#booking"
+              href="/#booking"
               onClick={() => setIsOpen(false)}
               className="mt-4 px-8 py-3 bg-gold text-white font-medium text-sm tracking-widest uppercase shadow-lg"
             >
