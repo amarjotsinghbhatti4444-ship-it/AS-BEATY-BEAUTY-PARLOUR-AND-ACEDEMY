@@ -1,0 +1,6 @@
+{
+  "name": "AS Beauty Salon & Academy",
+  "description": "Professional Salon Services and Certified Beauty Training Under One Roof.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
